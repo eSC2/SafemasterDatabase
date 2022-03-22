@@ -16,5 +16,7 @@ namespace SMBD_LadderGenerator
         public int CalcLength();
         public int CalcStepSpacing();
         public int CalcStepQty();
+
+
     }
 }
