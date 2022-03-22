@@ -6,7 +6,13 @@ namespace SMBD_LadderGenerator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Start load user interface
+            UserInterface();
+
+            // Load functions
+            GenerateLadder();
+            GetDatabase();
+            GenerateAnalytics();
         }
     }
 }
