@@ -8,7 +8,6 @@ namespace SMBD_LadderGenerator
 {
     internal interface CalculateLadder
     {
-        int JobNumber { get; set; }
         int VerticalHeight { get; set; }
         int Length { get; set; }
         int Width { get; set; }
