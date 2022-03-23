@@ -5,18 +5,42 @@ namespace SMBD_LadderGenerator
 {
     internal class RungLadderComplianceData : ILadderComplianceData
     {
-        public int MaxVerticalHeight { get; private set; } = 6000;
-        public int MinVerticalHeight { get; private set; } = 500;
-        public int MaxSlope { get; private set; } = 90;
-        public int MinSlope { get; private set; } = 70;
-        public int MaxInternalWidth { get; private set; } = 525;
-        public int MinInternalWidth { get; private set; } = 375;
-        public int MaxStepSpacing { get; private set; } = 300;
-        public int MinStepSpacing { get; private set; } = 250;
+        static int[] MinMaxVerticalHeight { get; } = { 500, 6000 };
+        static int[] MinMaxPitch { get; } = { 70, 90 };
+        static int[] MinMaxInternalWidth { get; } = { 375, 525 };
+        static int[] MinMaxStepSpacing { get; } = { 250, 300 };
+
+        private static int[][] CompData = new int[][]
+        {
+            MinMaxVerticalHeight, MinMaxPitch, MinMaxInternalWidth
+        };
 
         public override string ToString()
         {
             return String.Format("Rung Ladder Compliance Data to AS1657");
+        }
+
+        public bool CheckCompliance(int[] userInput)
+        {
+            bool result = false;
+
+            for (int i = 0; i < userInput.Length; i++)
+            {
+                if (userInput[i] > CompData[i][i] && userInput[i] < CompData[i][i + 1])
+                    result = true;
+                else
+                    result = false;
+            }
+
+            //foreach (int[] i in CompData)
+            //{
+            //    foreach (int j in i)
+            //    {
+            //        Console.WriteLine(j);
+            //    }
+            //}
+
+            return result;
         }
     }
 }

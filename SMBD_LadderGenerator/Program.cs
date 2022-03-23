@@ -6,7 +6,13 @@ namespace SMBD_LadderGenerator
     {
         static void Main(string[] args)
         {
-            RungLadderComplianceData.CheckContent();
+
+            var temp = GetUserInput.AssignUserInput();
+
+            RungLadderComplianceData RungComp = new RungLadderComplianceData();
+
+            RungComp.CheckCompliance(temp);
+
 
             // Start load user interface
             //UserInterface();

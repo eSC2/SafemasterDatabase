@@ -20,19 +20,14 @@ namespace SMBD_LadderGenerator
         static int InputLadderWidth = 535;
         static int InputLadderPitch = 70;
 
-        public static Dictionary<string, object> AssignUserInput()
+        public static int[] AssignUserInput()
         {
+            int[] inputDataArr = new int[]
+            {
+                InputLadderVerticalHeight, InputLadderWidth, InputLadderPitch,
+            };
 
-            Dictionary<string, object> inputDataDict = new Dictionary<string, object>();
-
-            // Obtain values from UI inputFields
-            inputDataDict.Add("JobNumber", JobNumber);
-            inputDataDict.Add("InputLadderType", InputLadderType);
-            inputDataDict.Add("InputLadderVerticalHeight", InputLadderVerticalHeight);
-            inputDataDict.Add("InputLadderPitch", InputLadderPitch);
-            inputDataDict.Add("InputLadderWidth", InputLadderWidth);
-
-            return inputDataDict;
+            return inputDataArr;
         }
     }
 }
