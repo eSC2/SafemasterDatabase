@@ -6,19 +6,13 @@ namespace SMBD_LadderGenerator
     {
         static void Main(string[] args)
         {
-            var testLadder = new StairCaseComplianceData();
-
-            var props = testLadder.GetType().GetProperties();
-
-            foreach (var obj in props)
-            {
-                Console.WriteLine(obj.ToString());
-            }
+            RungLadderComplianceData.CheckContent();
 
             // Start load user interface
             //UserInterface();
 
             // Load functions
+            //GetUserInput();
             //GenerateLadder();
             //GetDatabase();
             //GenerateAnalytics();

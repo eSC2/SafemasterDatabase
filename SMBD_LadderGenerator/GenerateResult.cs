@@ -15,22 +15,22 @@ namespace SMBD_LadderGenerator
     {
         // Assuming the input data passed compliance test and ladder type confirmed
         // Calculate according to ladder type
-        public void CalculateResult(LadderType ladderType)
-        {
-            switch (ladderType.InputLadderType)
-            {
-                case "rungLadder":
-                    break;
+        //public void CalculateResult(LadderTypeBase ladderType)
+        //{
+        //    switch (ladderType.InputLadderType)
+        //    {
+        //        case "rungLadder":
+        //            break;
 
-                case "stepLadder":
-                    break;
+        //        case "stepLadder":
+        //            break;
 
-                case "stairCase":
-                    break;
+        //        case "stairCase":
+        //            break;
 
-                default:
-                    break;
-            }
-        }
+        //        default:
+        //            break;
+        //    }
+        //}
     }
 }

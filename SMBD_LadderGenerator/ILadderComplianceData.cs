@@ -10,13 +10,10 @@ namespace SMBD_LadderGenerator
     {
 
         // MaxInternalWidth not included as Stair Case does not implement this interface
-        int MaxVerticalHeight { get; }
-        int MinVerticalHeight { get; }
-        int MaxSlope { get; }
-        int MinSlope { get; }
-        //int MaxInternalWidth { get; }
-        int MinInternalWidth { get; }
-        int MaxStepSpacing { get; }
-        int MinStepSpacing { get; }
+        static int[] MinMaxVerticalHeight { get; }
+        static int[] MinMaxSlope { get; }
+        static int[] MinMaxInternalWidth { get; }
+        static int[] MinMaxStepSpacing { get; }
+
     }
 }
