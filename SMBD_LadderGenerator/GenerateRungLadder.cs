@@ -9,7 +9,7 @@ namespace SMBD_LadderGenerator
     /// <summary>
     /// Child class RungLadder of Base class LadderTypeBase
     /// </summary>
-    internal class RungLadder : LadderTypeBase
+    internal class GenerateRungLadder : LadderTypeBase
     {
         public int LadderTopStile { get; set; }
 
@@ -19,7 +19,7 @@ namespace SMBD_LadderGenerator
         /// <param name="inputLadderVHeight">User input vertical height</param>
         /// <param name="inputLadderWidth">User input ladder internal width</param>
         /// <param name="inputLadderPitch">User input ladder pitch</param>
-        public RungLadder(int inputLadderVHeight, int inputLadderWidth, int inputLadderPitch) : base(inputLadderVHeight, inputLadderWidth, inputLadderPitch)
+        public GenerateRungLadder(int inputLadderVHeight, int inputLadderWidth, int inputLadderPitch) : base(inputLadderVHeight, inputLadderWidth, inputLadderPitch)
         {
             this.LadderType = "Rung Ladder";
 

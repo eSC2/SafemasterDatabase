@@ -4,6 +4,11 @@ namespace SMBD_LadderGenerator
 {
     internal class GenerateLadder
     {
+        static void GetUsertInput()
+        { 
+
+        }
+
         // 1. Get user input.
         // 1a. User choose which ladder to generate (rung, step, stair)
         // 1b. User input required information (Job no, Vertical Height, Ladder Pitch, Ladder Width)

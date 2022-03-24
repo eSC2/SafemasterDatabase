@@ -6,10 +6,13 @@ namespace SMBD_LadderGenerator
     {
         static void Main(string[] args)
         {
+            var userInput = UserInputs.GetUserInput();
 
-            var temp = GetUserInput.AssignUserInput();
+            foreach (var input in userInput)
+            {
+                Console.WriteLine(input);
+            }
 
-            Console.WriteLine(RungLadderComplianceData.CheckInputCompliance(temp));
 
 
             // Start load user interface

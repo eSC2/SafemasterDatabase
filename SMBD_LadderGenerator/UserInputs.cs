@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace SMBD_LadderGenerator
 {
-    internal class GetUserInput
+    internal class UserInputs
     {
 
         // Test Values
@@ -20,7 +20,37 @@ namespace SMBD_LadderGenerator
         static int InputLadderWidth = 525;
         static int InputLadderPitch = 70;
 
-        public static int[] AssignUserInput()
+        static bool compCheckResult = false;
+
+        public static int[] GetUserInput()
+        {
+            var input = AssignUserInput();
+
+            switch (InputLadderType)
+            {
+                case "Rung Ladder":
+                    compCheckResult = RungLadderCheck.CheckInputCompliance(input);
+                    break;
+
+                case "Step Ladder":
+                    compCheckResult = StepLadderCheck.CheckInputCompliance(input);
+                    break;
+
+                case "Stair Case":
+                    break;
+
+                    // Need proper error handling
+                default: throw new ArgumentException("Ladder Type input missing");
+            }
+
+
+            if (compCheckResult)
+                return input;
+            else
+                return null;
+        }
+
+        private static int[] AssignUserInput()
         {
             int[] inputDataArr = new int[]
             {
