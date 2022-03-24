@@ -9,9 +9,7 @@ namespace SMBD_LadderGenerator
 
             var temp = GetUserInput.AssignUserInput();
 
-            RungLadderComplianceData RungComp = new RungLadderComplianceData();
-
-            RungComp.CheckCompliance(temp);
+            Console.WriteLine(RungLadderComplianceData.CheckInputCompliance(temp));
 
 
             // Start load user interface

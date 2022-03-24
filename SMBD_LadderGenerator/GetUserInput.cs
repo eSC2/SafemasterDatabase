@@ -17,7 +17,7 @@ namespace SMBD_LadderGenerator
         static string JobNumber = "SMxxxxx";
         static string InputLadderType = "Rung Ladder";
         static int InputLadderVerticalHeight = 1000;
-        static int InputLadderWidth = 535;
+        static int InputLadderWidth = 525;
         static int InputLadderPitch = 70;
 
         public static int[] AssignUserInput()
