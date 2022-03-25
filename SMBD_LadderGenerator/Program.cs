@@ -6,14 +6,19 @@ namespace SMBD_LadderGenerator
     {
         static void Main(string[] args)
         {
-            var userInput = UserInputs.GetUserInput();
+            var input = UserInputs.GetUserInput();
 
-            foreach (var input in userInput)
+            if (input == null)
             {
-                Console.WriteLine(input);
+                Console.WriteLine("Non-compliant input");
             }
-
-
+            else
+            {
+                foreach (var r in input)
+                {
+                    Console.WriteLine(r);
+                }
+            }
 
             // Start load user interface
             //UserInterface();
