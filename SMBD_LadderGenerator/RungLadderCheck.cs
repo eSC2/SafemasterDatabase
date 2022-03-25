@@ -1,20 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SMBD_LadderGenerator
 {
-    internal class RungLadderCheck : InputComplianceCheck
+    internal class RungLadderCheck : InputComplianceCheck, ILadderComplianceData
     {
         static int[] MinMaxVerticalHeight { get; } = { 500, 6000 };
         static int[] MinMaxInternalWidth { get; } = { 375, 525 };
         static int[] MinMaxPitch { get; } = { 70, 90 };
         static int[] MinMaxStepSpacing { get; } = { 250, 300 };
 
-        public static bool CheckInputCompliance(int[] userInput)
+        public static bool CheckInputCompliance(List<int> userInput)
         {
-            bool result = ComplianceCheck
-                (GenerateCompareData(MinMaxVerticalHeight, MinMaxInternalWidth, MinMaxPitch), userInput);
-
-            return result;
+            return ComplianceCheck(MinMaxVerticalHeight, MinMaxInternalWidth, MinMaxPitch, userInput);
         }
 
         public override string ToString()

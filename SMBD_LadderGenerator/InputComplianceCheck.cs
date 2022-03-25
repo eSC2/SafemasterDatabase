@@ -8,16 +8,10 @@ namespace SMBD_LadderGenerator
 {
     internal class InputComplianceCheck
     {
-        private protected static int[][] GenerateCompareData
-            (int[] minMaxVHeight, int[] minMaxIntWidth, int[] minMaxP)
+        private protected static bool ComplianceCheck(int[] minMaxVHeight, int[] minMaxIntWidth, int[] minMaxP, List<int> userInput)
         {
-            int[][] CompData = new int[][] { minMaxVHeight, minMaxIntWidth, minMaxP };
+            int[][] compData = new int[][] { minMaxVHeight, minMaxIntWidth, minMaxP };
 
-            return CompData;
-        }
-
-        private protected static bool ComplianceCheck(int[][] compData, int[] userInput)
-        {
             bool result = false;
 
             int i = 0;
@@ -35,7 +29,38 @@ namespace SMBD_LadderGenerator
                     break;
                 }
             }
+            Console.WriteLine(result);
             return result;
         }
+
+        //private protected static int[][] GenerateCompareData
+        //    (int[] minMaxVHeight, int[] minMaxIntWidth, int[] minMaxP)
+        //{
+        //    int[][] CompData = new int[][] { minMaxVHeight, minMaxIntWidth, minMaxP };
+
+        //    return CompData;
+        //}
+
+        //private protected static bool ComplianceCheck(int[][] compData, int[] userInput)
+        //{
+        //    bool result = false;
+
+        //    int i = 0;
+
+        //    foreach (var input in userInput)
+        //    {
+        //        if (input >= compData[i][0] && input <= compData[i][1])
+        //        {
+        //            result = true;
+        //            i++;
+        //        }
+        //        else
+        //        {
+        //            result = false;
+        //            break;
+        //        }
+        //    }
+        //    return result;
+        //}
     }
 }
