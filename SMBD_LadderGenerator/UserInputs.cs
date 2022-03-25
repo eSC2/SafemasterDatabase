@@ -13,51 +13,68 @@ namespace SMBD_LadderGenerator
     internal class UserInputs
     {
 
-        // Test Values
-        static string JobNumber = "SMxxxxx";
-        static string InputLadderType = "Rung Ladder";
+        // Test Values - Rung Ladder
+        //static string InputLadderType = "rungLadder";
+        //static int JobNumber = 12345;
+        //static int InputLadderVerticalHeight = 1000;
+        //static int InputLadderWidth = 525;
+        //static int InputLadderPitch = 70;
+
+        // Test Values - Step Ladder
+        static string InputLadderType = "stepLadder";
+        static int JobNumber = 12345;
         static int InputLadderVerticalHeight = 1000;
-        static int InputLadderWidth = 525;
-        static int InputLadderPitch = 70;
+        static int InputLadderWidth = 600;
+        static int InputLadderPitch = 90;
 
-        static bool compCheckResult = false;
+        static bool inputCheckResult = false;
 
-        public static int[] GetUserInput()
+        public static List<int> GetUserInput()
         {
             var input = AssignUserInput();
 
             switch (InputLadderType)
             {
-                case "Rung Ladder":
-                    compCheckResult = RungLadderCheck.CheckInputCompliance(input);
+                case "rungLadder":
+                    inputCheckResult = RungLadderCheck.CheckInputCompliance(input);
+
+                    if (inputCheckResult)
+                        input.Add(JobNumber);
                     break;
 
-                case "Step Ladder":
-                    compCheckResult = StepLadderCheck.CheckInputCompliance(input);
+                case "stepLadder":
+                    inputCheckResult = StepLadderCheck.CheckInputCompliance(input);
+
+                    if (inputCheckResult)
+                        input.Add(JobNumber);
                     break;
 
-                case "Stair Case":
+                case "stairCase":
+                    inputCheckResult = StairCaseCheck.CheckInputCompliance(input);
+
+                    if (inputCheckResult)
+                        input.Add(JobNumber);
                     break;
 
                     // Need proper error handling
                 default: throw new ArgumentException("Ladder Type input missing");
             }
 
-
-            if (compCheckResult)
-                return input;
-            else
-                return null;
+            return input;
+            //if (inputCheckResult)
+            //    return input;
+            //else
+            //    return null;
         }
 
-        private static int[] AssignUserInput()
+        private static List<int> AssignUserInput()
         {
-            int[] inputDataArr = new int[]
+            List<int> inputDataList = new List<int>
             {
                 InputLadderVerticalHeight, InputLadderWidth, InputLadderPitch,
             };
 
-            return inputDataArr;
+            return inputDataList;
         }
     }
 }
