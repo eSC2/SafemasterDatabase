@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SMBD_LadderGenerator
 {
-    internal class InputComplianceCheck : ILadderComplianceData
+    /// <summary>
+    /// Checking input data against compliance data
+    /// </summary>
+    internal struct InputComplianceCheck : ILadderComplianceData
     {
 
         public static int[] MinMaxVerticalHeight { get; private set; }
@@ -15,6 +18,12 @@ namespace SMBD_LadderGenerator
         public static int[] MinMaxStepSpacing { get; private set; }
 
 
+        /// <summary>
+        /// Running Compliance Check on input data for specific ladder type
+        /// </summary>
+        /// <param name="ladderType">Ladder type to be checked</param>
+        /// <param name="userInput">User input data to be checked</param>
+        /// <returns></returns>
         public static bool RunComplianceCheck(string ladderType, List<int> userInput)
         {
             AssignCompData(ladderType);
@@ -22,6 +31,7 @@ namespace SMBD_LadderGenerator
             return ComplianceCheck(userInput);
         }
 
+        // Running assign compliance data according to ladder type given
         private static void AssignCompData(string ladderType)
         {
             switch (ladderType)
@@ -39,6 +49,7 @@ namespace SMBD_LadderGenerator
             }
         }
 
+        // Running compliance check with given user input data against compliance data
         private static bool ComplianceCheck(List<int> userInput)
         {
             int[][] compData = new int[][] { MinMaxVerticalHeight, MinMaxInternalWidth, MinMaxPitch };
@@ -63,6 +74,8 @@ namespace SMBD_LadderGenerator
             return result;
         }
 
+
+        // Rung ladder compliance data to AS1657
         private static void AssignRungLadderData()
         {
             MinMaxVerticalHeight = new int[] { 500, 6000 };
@@ -71,6 +84,8 @@ namespace SMBD_LadderGenerator
             MinMaxStepSpacing = new int[] { 250, 300 };
         }
 
+
+        // Step Ladder compliance data to AS1657
         private static void AssignStepLadderData()
         {
             MinMaxVerticalHeight = new int[] { 600, 6000 };
@@ -79,6 +94,7 @@ namespace SMBD_LadderGenerator
             MinMaxStepSpacing = new int[] { 200, 300 };
         }
 
+        // Stair case compliance data to AS1657
         private static void AssignStairCaseData()
         {
             MinMaxVerticalHeight = new int[] { 500, 4000 };

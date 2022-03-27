@@ -20,6 +20,8 @@ namespace SMBD_LadderGenerator
                 }
             }
 
+            var rungLadder = new RungLadder(input[0], input[1], input[2]);
+
             // Start load user interface
             //UserInterface();
 
