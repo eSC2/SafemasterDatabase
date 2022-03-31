@@ -11,12 +11,7 @@ namespace SMBD_LadderGenerator
     /// </summary>
     internal struct InputComplianceCheck : ILadderComplianceData
     {
-
-        public static int[] MinMaxVerticalHeight { get; private set; }
-        public static int[] MinMaxInternalWidth { get; private set; }
-        public static int[] MinMaxPitch { get; private set; }
-        public static int[] MinMaxStepSpacing { get; private set; }
-
+        static int[][] ComplianceData = new int[4][];
 
         /// <summary>
         /// Running Compliance Check on input data for specific ladder type
@@ -28,7 +23,7 @@ namespace SMBD_LadderGenerator
         {
             AssignCompData(ladderType);
 
-            return ComplianceCheck(userInput);
+            return ComplianceCheck(userInput, ComplianceData);
         }
 
         // Running assign compliance data according to ladder type given
@@ -37,22 +32,21 @@ namespace SMBD_LadderGenerator
             switch (ladderType)
             {
                 case "rungLadder":
-                    AssignRungLadderData();
+                    ComplianceData = LadderComplianceData.AssignRungLadderData();
                     break;
                 case "stepLadder":
-                    AssignStepLadderData();
+                    ComplianceData = LadderComplianceData.AssignStepLadderData();
                     break;
                 case "stairCase":
-                    AssignStairCaseData();
+                    ComplianceData = LadderComplianceData.AssignStairCaseData();
                     break;
                 default: throw new ArgumentException("No ladder type given");
             }
         }
 
         // Running compliance check with given user input data against compliance data
-        private static bool ComplianceCheck(List<int> userInput)
+        private static bool ComplianceCheck(List<int> userInput, int[][] compData)
         {
-            int[][] compData = new int[][] { MinMaxVerticalHeight, MinMaxInternalWidth, MinMaxPitch };
 
             bool result = false;
 
@@ -72,35 +66,6 @@ namespace SMBD_LadderGenerator
                 }
             }
             return result;
-        }
-
-
-        // Rung ladder compliance data to AS1657
-        private static void AssignRungLadderData()
-        {
-            MinMaxVerticalHeight = new int[] { 500, 6000 };
-            MinMaxInternalWidth = new int[] { 375, 525 };
-            MinMaxPitch = new int[] { 70, 90 };
-            MinMaxStepSpacing = new int[] { 250, 300 };
-        }
-
-
-        // Step Ladder compliance data to AS1657
-        private static void AssignStepLadderData()
-        {
-            MinMaxVerticalHeight = new int[] { 600, 6000 };
-            MinMaxInternalWidth = new int[] { 450, 750 };
-            MinMaxPitch = new int[] { 60, 70 };
-            MinMaxStepSpacing = new int[] { 200, 300 };
-        }
-
-        // Stair case compliance data to AS1657
-        private static void AssignStairCaseData()
-        {
-            MinMaxVerticalHeight = new int[] { 500, 4000 };
-            MinMaxInternalWidth = new int[] { 600 };
-            MinMaxPitch = new int[] { 20, 45 };
-            MinMaxStepSpacing = new int[] { 200, 300 };
         }
     }
 }
