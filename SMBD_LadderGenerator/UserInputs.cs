@@ -14,18 +14,18 @@ namespace SMBD_LadderGenerator
     {
 
         // Test Values - Rung Ladder
-        static string InputLadderType = "rungLadder";
-        static int JobNumber = 12345;
-        static int InputLadderVerticalHeight = 1000;
-        static int InputLadderWidth = 525;
-        static int InputLadderPitch = 70;
-
-        // Test Values - Step Ladder
-        //static string InputLadderType = "stepLadder";
+        //static string InputLadderType = "rungLadder";
         //static int JobNumber = 12345;
         //static int InputLadderVerticalHeight = 1000;
-        //static int InputLadderWidth = 600;
-        //static int InputLadderPitch = 90;
+        //static int InputLadderWidth = 525;
+        //static int InputLadderPitch = 70;
+
+        // test values - step ladder
+        static string InputLadderType = "stepLadder";
+        static int JobNumber = 12345;
+        static int InputLadderVerticalHeight = 2000;
+        static int InputLadderWidth = 600;
+        static int InputLadderPitch = 70;
 
         public static List<int> GetUserInput()
         {

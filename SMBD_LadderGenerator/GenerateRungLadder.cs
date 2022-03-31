@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SMBD_LadderGenerator
 {
+    /*
     /// <summary>
     /// Child class RungLadder of Base class LadderTypeBase
     /// </summary>
@@ -29,4 +30,5 @@ namespace SMBD_LadderGenerator
                 this.LadderTopStile = 1065;
         }
     }
+    */
 }

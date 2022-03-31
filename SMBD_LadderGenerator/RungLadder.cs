@@ -8,10 +8,11 @@ namespace SMBD_LadderGenerator
 {
     internal class RungLadder : LadderSystem
     {
-        public RungLadder(int ladderVH, int ladderW, int ladderP) : base(ladderVH, ladderW, ladderP)
+        public RungLadder(int ladderVH, int ladderW, int ladderP, int jobNumber) : base(ladderVH, ladderW, ladderP, jobNumber)
         {
             LadderBodyLength = LadderCalcFx.BodyLength(ladderP, ladderVH);
             NumberOfSteps = LadderCalcFx.NumOfSteps(LadderBodyLength, 300);
+            StepDistance = LadderCalcFx.StepDistance(LadderBodyLength, NumberOfSteps);
         }
     }
 }

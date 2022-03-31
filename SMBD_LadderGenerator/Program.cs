@@ -14,13 +14,13 @@ namespace SMBD_LadderGenerator
             }
             else
             {
-                foreach (var r in input)
+                var rungLadder = new RungLadder(input[0], input[1], input[2], input[3]);
+
+                foreach (var e in rungLadder)
                 {
-                    Console.WriteLine(r);
+                    Console.WriteLine(e);
                 }
             }
-
-            var rungLadder = new RungLadder(input[0], input[1], input[2]);
 
             // Start load user interface
             //UserInterface();
